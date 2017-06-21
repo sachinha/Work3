@@ -1,0 +1,12 @@
+Sub Work3()
+    'D1セルに500円以上のAの合計を出す
+    Range("D1").Value = SumByItem("A")
+    'D1セルに500円以上のBの合計を出す
+    Range("E1").Value = SumByItem("B")
+End Sub
+
+Function SumByItem(ByVal itemName As String) As Integer
+    Dim sum As Integer
+    sum = WorksheetFunction.SumIfs(Range("B1:B10"), Range("A1:A10"), itemName, Range("B1:B10"), ">=500")
+    SumByItem = sum
+End Function
